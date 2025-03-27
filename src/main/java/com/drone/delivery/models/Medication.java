@@ -36,11 +36,4 @@ public class Medication {
     @JoinColumn(name = "drone_id")
     @JsonIgnore
     private Drone drone;
-
-    public Medication(String name, int weight, String code, String imageUrl) {
-        this.name = name;
-        this.weight = weight;
-        this.code = code;
-        this.imageUrl = imageUrl;
-    }
 } 

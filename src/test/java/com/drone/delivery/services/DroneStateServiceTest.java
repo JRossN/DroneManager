@@ -80,7 +80,11 @@ class DroneStateServiceTest {
     void updateDroneStates_WhenDelivering_ShouldTransitionToDeliveredAndClearMedications() {
         // Arrange
         testDrone.setState(DroneState.DELIVERING);
-        Medication medication = new Medication("Test", 100, "TEST001", "image.jpg");
+        Medication medication = new Medication();
+        medication.setName("Test");
+        medication.setWeight(100);
+        medication.setCode("TEST001");
+        medication.setImageUrl("image.jpg");
         List<Medication> medications = new ArrayList<>();
         medications.add(medication);
         testDrone.setMedications(medications);

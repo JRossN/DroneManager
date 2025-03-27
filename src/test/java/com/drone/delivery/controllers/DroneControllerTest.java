@@ -90,8 +90,8 @@ class DroneControllerTest {
     void getDroneMedications_ShouldReturnOkStatus() {
         // Arrange
         List<Medication> medications = Arrays.asList(
-            new Medication("Medicine1", 100, "MED001", "image1.jpg"),
-            new Medication("Medicine2", 150, "MED002", "image2.jpg")
+            createMedication("Medicine1", 100, "MED001", "image1.jpg"),
+            createMedication("Medicine2", 150, "MED002", "image2.jpg")
         );
         when(droneService.getDroneMedications(1L)).thenReturn(medications);
 
@@ -116,5 +116,14 @@ class DroneControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
         assertEquals(100, response.getBody().getBattery());
+    }
+
+    private Medication createMedication(String name, int weight, String code, String imageUrl) {
+        Medication medication = new Medication();
+        medication.setName(name);
+        medication.setWeight(weight);
+        medication.setCode(code);
+        medication.setImageUrl(imageUrl);
+        return medication;
     }
 } 

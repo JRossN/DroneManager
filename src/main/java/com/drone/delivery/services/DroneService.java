@@ -68,10 +68,6 @@ public class DroneService {
             throw new DroneNotAvailableException("Total medication weight (" + totalWeight + "g) exceeds drone weight limit (" + drone.getWeightLimit() + "g)");
         }
 
-        // Update drone state
-        drone.setState(DroneState.LOADING);
-        drone = droneRepository.save(drone);
-
         // Save medications
         for (MedicationLoadRequest request : medications) {
             Medication medication = new Medication();
