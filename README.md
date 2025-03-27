@@ -111,7 +111,7 @@ mvn test
 ```json
 POST /api/drones
 {
-    "serialNumber": "DRONE001",
+    "serialNumber": "DRONE011",
     "model": "LIGHTWEIGHT",
     "weightLimit": 300,
     "batteryCapacity": 100
@@ -123,10 +123,16 @@ POST /api/drones
 POST /api/drones/1/load
 [
     {
-        "name": "Painkiller",
+        "name": "PAINKILLER_1",
         "weight": 100,
-        "code": "PKL-001",
+        "code": "PKL_001",
         "imageUrl": "http://example.com/painkiller.jpg"
+    },
+    {
+        "name": "ANTIBIOTIC_2",
+        "weight": 150,
+        "code": "ATB_002",
+        "imageUrl": "http://example.com/antibiotic.jpg"
     }
 ]
 ```
