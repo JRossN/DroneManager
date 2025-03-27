@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "Drone Management API",
+        "name": "Drone Management API", 
         "description": "Collection for testing Drone Management System APIs",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -17,7 +17,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"serialNumber\": \"DRONE011\",\n    \"model\": \"LIGHTWEIGHT\",\n    \"weightLimit\": 300,\n    \"batteryCapacity\": 100\n}"
+                    "raw": "{\n    \"serialNumber\": \"DRONE011\",\n    \"model\": \"LIGHTWEIGHT\",\n    \"weightLimit\": 500,\n    \"batteryCapacity\": 100\n}"
                 },
                 "url": {
                     "raw": "{{baseUrl}}/api/drones",
@@ -38,7 +38,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "[\n    {\n        \"name\": \"PAINKILLER_1\",\n        \"weight\": 100,\n        \"code\": \"PKL_001\",\n        \"imageUrl\": \"http://example.com/painkiller.jpg\"\n    },\n    {\n        \"name\": \"ANTIBIOTIC_2\",\n        \"weight\": 150,\n        \"code\": \"ATB_002\",\n        \"imageUrl\": \"http://example.com/antibiotic.jpg\"\n    }\n]"
+                    "raw": "[\n    {\n        \"name\": \"PAINKILLER_1\",\n        \"weight\": 200,\n        \"code\": \"PKL_001\",\n        \"imageUrl\": \"http://example.com/painkiller.jpg\"\n    },\n    {\n        \"name\": \"ANTIBIOTIC_2\",\n        \"weight\": 250,\n        \"code\": \"ATB_002\",\n        \"imageUrl\": \"http://example.com/antibiotic.jpg\"\n    }\n]"
                 },
                 "url": {
                     "raw": "{{baseUrl}}/api/drones/{{droneId}}/load",

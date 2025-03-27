@@ -98,6 +98,7 @@ mvn test
 2. Set up environment variables:
    - Create a new environment
    - Add variable `baseUrl` with value `http://localhost:8080`
+   - Add variable `droneId` with value `1`
 
 3. Test the APIs:
    - Register a new drone
@@ -113,7 +114,7 @@ POST /api/drones
 {
     "serialNumber": "DRONE011",
     "model": "LIGHTWEIGHT",
-    "weightLimit": 300,
+    "weightLimit": 500,
     "batteryCapacity": 100
 }
 ```
@@ -124,13 +125,13 @@ POST /api/drones/1/load
 [
     {
         "name": "PAINKILLER_1",
-        "weight": 100,
+        "weight": 200,
         "code": "PKL_001",
         "imageUrl": "http://example.com/painkiller.jpg"
     },
     {
         "name": "ANTIBIOTIC_2",
-        "weight": 150,
+        "weight": 250,
         "code": "ATB_002",
         "imageUrl": "http://example.com/antibiotic.jpg"
     }
@@ -143,6 +144,7 @@ The application uses H2 in-memory database:
 - Database URL: `jdbc:h2:mem:testdb`
 - Initial data is loaded from `src/main/resources/data.sql`
 - Data is reset on application restart
+- H2 Console available at `http://localhost:8080/h2-console`
 
 ## Configuration
 
