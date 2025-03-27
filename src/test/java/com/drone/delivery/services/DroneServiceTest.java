@@ -100,6 +100,6 @@ class DroneServiceTest {
 
         // Assert
         assertEquals(DroneState.LOADING, result.getState());
-        verify(droneRepository, times(2)).save(any(Drone.class));
+        verify(droneRepository).save(any(Drone.class));
     }
 } 
