@@ -1,0 +1,94 @@
+{
+    "info": {
+        "name": "Drone Management API",
+        "description": "Collection for testing Drone Management System APIs",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Register Drone",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"serialNumber\": \"DRONE011\",\n    \"model\": \"LIGHTWEIGHT\",\n    \"weightLimit\": 300,\n    \"batteryCapacity\": 100\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/drones",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "drones"]
+                }
+            }
+        },
+        {
+            "name": "Load Medications",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n    {\n        \"name\": \"PAINKILLER_1\",\n        \"weight\": 100,\n        \"code\": \"PKL_001\",\n        \"imageUrl\": \"http://example.com/painkiller.jpg\"\n    },\n    {\n        \"name\": \"ANTIBIOTIC_2\",\n        \"weight\": 150,\n        \"code\": \"ATB_002\",\n        \"imageUrl\": \"http://example.com/antibiotic.jpg\"\n    }\n]"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/drones/{{droneId}}/load",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "drones", "{{droneId}}", "load"]
+                }
+            }
+        },
+        {
+            "name": "Get Drone Medications",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/drones/{{droneId}}/medications",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "drones", "{{droneId}}", "medications"]
+                }
+            }
+        },
+        {
+            "name": "Get Available Drones",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/drones/available",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "drones", "available"]
+                }
+            }
+        },
+        {
+            "name": "Get Drone Battery",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{baseUrl}}/api/drones/{{droneId}}/battery",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "drones", "{{droneId}}", "battery"]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080"
+        },
+        {
+            "key": "droneId",
+            "value": "1"
+        }
+    ]
+}
