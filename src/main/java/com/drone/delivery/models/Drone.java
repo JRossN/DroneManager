@@ -33,7 +33,7 @@ public class Drone {
     @NotNull(message = "Drone model is required")
     private DroneModel model;
 
-    @Max(value = 500, message = "Weight limit cannot exceed 500 grams")
+    @Max(value = 1000, message = "Weight limit cannot exceed 1000 grams")
     @NotNull(message = "Weight limit is required")
     private Integer weightLimit;
 
