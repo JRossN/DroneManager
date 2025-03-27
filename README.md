@@ -9,7 +9,7 @@ A Spring Boot application for managing drone deliveries of medications. The syst
 - Battery level monitoring
 - State management (IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING)
 - Automatic state transitions
-- H2 database with persistent storage
+- H2 database with in-memory storage
 - RESTful API endpoints
 - Comprehensive test coverage
 
@@ -77,9 +77,9 @@ mvn spring:boot run
 
 3. Access the H2 Console:
    - URL: `http://localhost:8080/h2-console`
-   - JDBC URL: `jdbc:h2:file:./data/drone_db`
+   - JDBC URL: `jdbc:h2:mem:testdb`
    - Username: `sa`
-   - Password: `password`
+   - Password: `` (empty)
 
 ## Testing
 
@@ -133,17 +133,26 @@ POST /api/drones/1/load
 
 ## Database
 
-The application uses H2 database with file-based persistence:
-- Database file location: `./data/drone_db.mv.db`
+The application uses H2 in-memory database:
+- Database URL: `jdbc:h2:mem:testdb`
 - Initial data is loaded from `src/main/resources/data.sql`
+- Data is reset on application restart
 
 ## Configuration
 
 Key configuration properties in `application.properties`:
-- Database settings
-- State transition intervals
-- Battery reduction rates
-- H2 console settings
+- H2 Database Configuration
+  - In-memory database
+  - Console enabled at `/h2-console`
+- JPA/Hibernate Configuration
+  - Hibernate dialect: H2
+  - DDL auto: update
+  - SQL logging enabled
+- Data Initialization
+  - SQL init mode: always
+  - Defer datasource initialization: true
+- Drone Configuration
+  - Battery reduction per delivery: 10%
 
 ## Contributing
 
